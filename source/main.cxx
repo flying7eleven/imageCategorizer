@@ -17,6 +17,20 @@
  * along with Image Categorizer.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include <QApplication>
+#include "MainWindow.hxx"
+
 int main( int argc, char **argv ) {
-	return 0;
+	//
+	QApplication app( argc, argv );
+
+	app.setOrganizationName( "Image Categorizer Developers" );
+	app.setApplicationName( "Image Categorizer" );
+
+	//
+	MainWindow mainWin( NULL );
+	mainWin.show();
+
+	// it seems that anything succeeded and we can return now
+	return app.exec();
 }
