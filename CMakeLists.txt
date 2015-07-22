@@ -50,8 +50,12 @@ qt5_wrap_ui( UI_HEADER_FILES source/ui/MainWindow.ui )
 set( version_file "${CMAKE_CURRENT_BINARY_DIR}/VersionInformation.cxx" )
 configure_file( ${CMAKE_CURRENT_SOURCE_DIR}/source/VersionInformation.cxx.in ${version_file} )
 
+set( IC_HEADER_FILES ${IC_HEADER_FILES} "source/MainWindow.hxx" )
+set( IC_SOURCE_FILES ${IC_SOURCE_FILES} "source/main.cxx" )
+set( IC_SOURCE_FILES ${IC_SOURCE_FILES} "source/MainWindow.cxx" )
+
 #
-add_executable( ic source/main.cxx ${version_file} ${UI_HEADER_FILES} )
+add_executable( ic ${IC_SOURCE_FILES} ${IC_HEADER_FILES} ${version_file} ${UI_HEADER_FILES} )
 target_link_libraries( ic ${Boost_LIBRARIES} )
 set_target_properties( ic PROPERTIES AUTOMOC TRUE )
 qt5_use_modules( ic Widgets )

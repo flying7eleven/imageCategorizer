@@ -17,6 +17,25 @@
  * along with Image Categorizer.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-int main( int argc, char **argv ) {
-	return 0;
-}
+#if !defined( __IC_MAINWINDOW_HXX__ )
+	#define __IC_MAINWINDOW_HXX__
+
+// include the required header files
+#include <QMainWindow>
+#include <QDateTime>
+
+// create a forward declaration for the UIC generated code
+namespace Ui {
+	class MainWindow;
+} /* namespace Ui */
+
+class MainWindow: public QMainWindow {
+	Q_OBJECT
+	public:
+		MainWindow( QWidget *parent );
+		virtual ~MainWindow();
+	private:
+		Ui::MainWindow *ui;
+}; /* class MainWindow */
+
+#endif /* if !defined( __IC_MAINWINDOW_HXX__ ) */

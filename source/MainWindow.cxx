@@ -17,6 +17,11 @@
  * along with Image Categorizer.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-int main( int argc, char **argv ) {
-	return 0;
+#include "MainWindow.hxx"
+#include "ui_MainWindow.h"
+
+MainWindow::MainWindow( QWidget *parent ) : QMainWindow( parent ), ui( new Ui::MainWindow() ) {
+	this->ui->setupUi( this );
 }
+
+MainWindow::~MainWindow() {}
