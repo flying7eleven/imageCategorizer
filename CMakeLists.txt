@@ -43,3 +43,4 @@ configure_file( ${CMAKE_CURRENT_SOURCE_DIR}/source/VersionInformation.cxx.in ${v
 
 #
 add_executable( ic source/main.cxx ${version_file} )
+target_link_libraries( ic ${Boost_LIBRARIES} )
