@@ -1,0 +1,40 @@
+#include "VersionInformation.hxx"
+#include <sstream>
+
+#define IMAGECLASSIFIER_VERSION_MAJOR @VERSION_MAJOR@
+#define IMAGECLASSIFIER_VERSION_MINOR @VERSION_MINOR@
+#define IMAGECLASSIFIER_VERSION_PATCH @VERSION_PATCH@
+#define IMAGECLASSIFIER_VERSION_SHA1 "@VERSION_SHA1@"
+
+const std::string getVersionString() {
+	std::stringstream ss;
+
+	// generate the basic version info
+	ss << getVersionMajor() << "." << getVersionMinor();
+	if( getVersionPatch() > 0 ) {
+		ss << "." << getVersionPatch();
+	}
+
+	// if there is and sha1 code (because it is a dev version, add it
+	if( getVersionSHA1().length() > 1 ) {
+		ss << getVersionSHA1();
+	}
+
+	return ss.str();
+}
+
+unsigned short int getVersionMajor() {
+	return IMAGECLASSIFIER_VERSION_MAJOR;
+}
+
+unsigned short int getVersionMinor() {
+	return IMAGECLASSIFIER_VERSION_MINOR;
+}
+
+unsigned short int getVersionPatch() {
+	return IMAGECLASSIFIER_VERSION_PATCH;
+}
+
+const std::string getVersionSHA1() {
+	return std::string( IMAGECLASSIFIER_VERSION_SHA1 );
+}
