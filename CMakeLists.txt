@@ -25,6 +25,12 @@ include_directories( AFTER ${CMAKE_CURRENT_SOURCE_DIR}/source )
 # search for the boost packages we need here
 find_package( Boost COMPONENTS system program_options filesystem regex REQUIRED )
 include_directories( AFTER ${Boost_INCLUDE_DIR} )
+	
+# prepare some stuff and look for the required Qt libraries
+set( CMAKE_INCLUDE_CURRENT_DIR ON )
+find_package( Qt5Core REQUIRED )
+find_package( Qt5Gui REQUIRED )
+find_package( Qt5Widgets REQUIRED )
 
 # make a version file containing the current version from git.
 include( GetGitRevisionDescription )
@@ -38,9 +44,14 @@ string(REGEX REPLACE "^v[0-9]+\\.[0-9]+\\.[0-9]+(.*)" "\\1" VERSION_SHA1 "${VERS
 set( VERSION_SHORT "${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_PATCH}" )
 
 #
+qt5_wrap_ui( UI_HEADER_FILES source/ui/MainWindow.ui )
+
+#
 set( version_file "${CMAKE_CURRENT_BINARY_DIR}/VersionInformation.cxx" )
 configure_file( ${CMAKE_CURRENT_SOURCE_DIR}/source/VersionInformation.cxx.in ${version_file} )
 
 #
-add_executable( ic source/main.cxx ${version_file} )
+add_executable( ic source/main.cxx ${version_file} ${UI_HEADER_FILES} )
 target_link_libraries( ic ${Boost_LIBRARIES} )
+set_target_properties( ic PROPERTIES AUTOMOC TRUE )
+qt5_use_modules( ic Widgets )
