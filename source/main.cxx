@@ -28,7 +28,7 @@ int main( int argc, char **argv ) {
 	app.setApplicationName( "Image Categorizer" );
 
 	//
-	MainWindow mainWin( NULL );
+	ic::ui::MainWindow mainWin( NULL );
 	mainWin.show();
 
 	// it seems that anything succeeded and we can return now

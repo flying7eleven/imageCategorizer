@@ -19,6 +19,7 @@
 
 #include "MainWindow.hxx"
 #include "ui_MainWindow.h"
+using namespace ic::ui;
 
 MainWindow::MainWindow( QWidget *parent ) : QMainWindow( parent ), ui( new Ui::MainWindow() ) {
 	this->ui->setupUi( this );

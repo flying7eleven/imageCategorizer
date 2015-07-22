@@ -17,8 +17,8 @@
  * along with Image Categorizer.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#if !defined( __IC_MAINWINDOW_HXX__ )
-	#define __IC_MAINWINDOW_HXX__
+#if !defined( __IC_UI_MAINWINDOW_HXX__ )
+	#define __IC_UI_MAINWINDOW_HXX__
 
 // include the required header files
 #include <QMainWindow>
@@ -29,13 +29,21 @@ namespace Ui {
 	class MainWindow;
 } /* namespace Ui */
 
-class MainWindow: public QMainWindow {
-	Q_OBJECT
-	public:
-		MainWindow( QWidget *parent );
-		virtual ~MainWindow();
-	private:
-		Ui::MainWindow *ui;
-}; /* class MainWindow */
+namespace ic {
 
-#endif /* if !defined( __IC_MAINWINDOW_HXX__ ) */
+	namespace ui {
+
+		class MainWindow: public QMainWindow {
+			Q_OBJECT
+			public:
+				MainWindow( QWidget *parent );
+				virtual ~MainWindow();
+			private:
+				Ui::MainWindow *ui;
+		}; /* class MainWindow */
+
+	} /* namespace ui */
+
+} /* namespace ic */
+
+#endif /* if !defined( __IC_UI_MAINWINDOW_HXX__ ) */
