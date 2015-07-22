@@ -1,4 +1,4 @@
-cmake_minimum_required( VERSION 3.0.1 )
+cmake_minimum_required( VERSION 3.2.3 )
 project( "Image Categorizer" )
 
 # setup the path where CMake should search for Find*.cmake scripts
