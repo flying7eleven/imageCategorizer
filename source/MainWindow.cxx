@@ -20,6 +20,7 @@
 #include "MainWindow.hxx"
 #include "ui_MainWindow.h"
 #include "PreferenceDialog.hxx"
+#include "NewProjectDialog.hxx"
 #include <QMessageBox>
 using namespace ic::ui;
 
@@ -35,6 +36,15 @@ void MainWindow::showPreferences() {
 	// if the settings were accepted and saved, reload them
 	if( QDialog::Accepted == dialog.exec() ) {
 		// TODO: reload the settings
+	}
+}
+
+void MainWindow::newProject() {
+	NewProjectDialog dialog( this );
+
+	// TODO
+	if( QDialog::Accepted == dialog.exec() ) {
+		// TODO
 	}
 }
 

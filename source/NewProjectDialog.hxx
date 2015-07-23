@@ -17,36 +17,32 @@
  * along with Image Categorizer.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#if !defined( __IC_UI_MAINWINDOW_HXX__ )
-	#define __IC_UI_MAINWINDOW_HXX__
+#if !defined( __IC_UI_NEWPROJECTDIALOG_HXX__ )
+	#define __IC_UI_NEWPROJECTDIALOG_HXX__
 
 // include the required header files
-#include <QMainWindow>
+#include <QDialog>
 
 // create a forward declaration for the UIC generated code
 namespace Ui {
-	class MainWindow;
+	class NewProjectDialog;
 } /* namespace Ui */
 
 namespace ic {
 
 	namespace ui {
 
-		class MainWindow: public QMainWindow {
+		class NewProjectDialog: public QDialog {
 			Q_OBJECT
 			public:
-				MainWindow( QWidget *parent );
-				virtual ~MainWindow();
-			public slots:
-				void showPreferences();
-				void quitApplication();
-				void newProject();
+				NewProjectDialog( QWidget *parent );
+				virtual ~NewProjectDialog();
 			private:
-				Ui::MainWindow *ui;
-		}; /* class MainWindow */
+				Ui::NewProjectDialog *ui;
+		}; /* class NewProjectDialog */
 
 	} /* namespace ui */
 
 } /* namespace ic */
 
-#endif /* if !defined( __IC_UI_MAINWINDOW_HXX__ ) */
+#endif /* if !defined( __IC_UI_NEWPROJECTDIALOG_HXX__ ) */

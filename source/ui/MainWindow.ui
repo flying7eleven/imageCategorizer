@@ -27,6 +27,15 @@
     <property name="title">
      <string>&amp;File</string>
     </property>
+    <widget class="QMenu" name="menu_Project">
+     <property name="title">
+      <string>&amp;Project</string>
+     </property>
+     <addaction name="action_NewProject"/>
+     <addaction name="action_Open"/>
+    </widget>
+    <addaction name="menu_Project"/>
+    <addaction name="separator"/>
     <addaction name="action_Quit"/>
    </widget>
    <widget class="QMenu" name="menu_Edit">
@@ -55,6 +64,16 @@
     <string>&amp;Preferences</string>
    </property>
   </action>
+  <action name="action_NewProject">
+   <property name="text">
+    <string>&amp;New</string>
+   </property>
+  </action>
+  <action name="action_Open">
+   <property name="text">
+    <string>&amp;Open</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections>
@@ -65,8 +84,8 @@
    <slot>showPreferences()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>402</x>
-     <y>220</y>
+     <x>-1</x>
+     <y>-1</y>
     </hint>
     <hint type="destinationlabel">
      <x>402</x>
@@ -90,9 +109,26 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>action_NewProject</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>newProject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>402</x>
+     <y>220</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>quitApplication()</slot>
   <slot>showPreferences()</slot>
+  <slot>newProject()</slot>
  </slots>
 </ui>
