@@ -19,6 +19,8 @@
 
 #include "MainWindow.hxx"
 #include "ui_MainWindow.h"
+#include "PreferenceDialog.hxx"
+#include <QMessageBox>
 using namespace ic::ui;
 
 MainWindow::MainWindow( QWidget *parent ) : QMainWindow( parent ), ui( new Ui::MainWindow() ) {
@@ -26,3 +28,28 @@ MainWindow::MainWindow( QWidget *parent ) : QMainWindow( parent ), ui( new Ui::M
 }
 
 MainWindow::~MainWindow() {}
+
+void MainWindow::showPreferences() {
+	PreferenceDialog dialog( this );
+
+	// if the settings were accepted and saved, reload them
+	if( QDialog::Accepted == dialog.exec() ) {
+		// TODO: reload the settings
+	}
+}
+
+void MainWindow::quitApplication() {
+	QMessageBox msgBox;
+
+	// set up the message box for asking the user if he or she really wants to quit
+	msgBox.setText( tr( "Quit application" ) );
+	msgBox.setInformativeText( tr( "Are you sure that you want to quit the application?" ) );
+	msgBox.setStandardButtons( QMessageBox::Yes | QMessageBox::No );
+	msgBox.setDefaultButton( QMessageBox::No );
+	msgBox.setIcon( QMessageBox::Question );
+
+	// if the user selected yes, quit the application
+	if( QMessageBox::Yes == msgBox.exec() ) {
+		QApplication::quit();
+	}
+}

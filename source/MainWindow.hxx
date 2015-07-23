@@ -22,7 +22,6 @@
 
 // include the required header files
 #include <QMainWindow>
-#include <QDateTime>
 
 // create a forward declaration for the UIC generated code
 namespace Ui {
@@ -38,6 +37,9 @@ namespace ic {
 			public:
 				MainWindow( QWidget *parent );
 				virtual ~MainWindow();
+			public slots:
+				void showPreferences();
+				void quitApplication();
 			private:
 				Ui::MainWindow *ui;
 		}; /* class MainWindow */
