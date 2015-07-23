@@ -44,15 +44,17 @@ string(REGEX REPLACE "^v[0-9]+\\.[0-9]+\\.[0-9]+(.*)" "\\1" VERSION_SHA1 "${VERS
 set( VERSION_SHORT "${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_PATCH}" )
 
 #
-qt5_wrap_ui( UI_HEADER_FILES source/ui/MainWindow.ui )
+qt5_wrap_ui( UI_HEADER_FILES source/ui/MainWindow.ui source/ui/PreferenceDialog.ui )
 
 #
 set( version_file "${CMAKE_CURRENT_BINARY_DIR}/VersionInformation.cxx" )
 configure_file( ${CMAKE_CURRENT_SOURCE_DIR}/source/VersionInformation.cxx.in ${version_file} )
 
 set( IC_HEADER_FILES ${IC_HEADER_FILES} "source/MainWindow.hxx" )
+set( IC_HEADER_FILES ${IC_HEADER_FILES} "source/PreferenceDialog.hxx" )
 set( IC_SOURCE_FILES ${IC_SOURCE_FILES} "source/main.cxx" )
 set( IC_SOURCE_FILES ${IC_SOURCE_FILES} "source/MainWindow.cxx" )
+set( IC_SOURCE_FILES ${IC_SOURCE_FILES} "source/PreferenceDialog.cxx" )
 
 #
 add_executable( ic ${IC_SOURCE_FILES} ${IC_HEADER_FILES} ${version_file} ${UI_HEADER_FILES} )
