@@ -37,6 +37,9 @@ namespace ic {
 			public:
 				NewProjectDialog( QWidget *parent );
 				virtual ~NewProjectDialog();
+			public slots:
+				void selectProjectBaseDirectory();
+				void accept();
 			private:
 				Ui::NewProjectDialog *ui;
 		}; /* class NewProjectDialog */
